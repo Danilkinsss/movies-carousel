@@ -12,7 +12,6 @@ const Home: React.FC = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        // Genre IDs: Fantasy: 14, Comedy: 35, Horror: 27
         const fantasy = getMoviesByGenre(14)
         const comedy = getMoviesByGenre(35)
         const horror = getMoviesByGenre(27)

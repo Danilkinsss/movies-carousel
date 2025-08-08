@@ -1,0 +1,54 @@
+.movie-card {
+  flex: 0 0 auto;
+  width: 150px;
+  margin-right: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.movie-card img {
+  width: 100%;
+  height: 225px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.movie-card:hover img {
+  transform: scale(1.05);
+}
+
+.movie-card-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  min-height: 2.5em;
+  line-height: 1.25;
+  flex-grow: 1;
+}
+
+.remove-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  width: 100%;
+  transition: background-color 0.2s;
+}
+
+.remove-button:hover {
+  background-color: #c82333;
+}

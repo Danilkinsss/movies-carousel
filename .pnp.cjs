@@ -42,7 +42,8 @@ const RAW_RUNTIME_STATE =
           ["sass", "npm:1.90.0"],\
           ["typescript", "patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"],\
           ["typescript-eslint", "virtual:2fe0f2e54021168d3518e880065fe8d8f10670030c6946ac61e024f436a15e2c5fe38ed8754dec661ea73f6dbfd3935685841cf0dc1404d4b9e02513a7bbec40#npm:8.39.0"],\
-          ["vite", "virtual:2fe0f2e54021168d3518e880065fe8d8f10670030c6946ac61e024f436a15e2c5fe38ed8754dec661ea73f6dbfd3935685841cf0dc1404d4b9e02513a7bbec40#npm:7.1.0"]\
+          ["vite", "virtual:2fe0f2e54021168d3518e880065fe8d8f10670030c6946ac61e024f436a15e2c5fe38ed8754dec661ea73f6dbfd3935685841cf0dc1404d4b9e02513a7bbec40#npm:7.1.0"],\
+          ["zustand", "virtual:2fe0f2e54021168d3518e880065fe8d8f10670030c6946ac61e024f436a15e2c5fe38ed8754dec661ea73f6dbfd3935685841cf0dc1404d4b9e02513a7bbec40#npm:5.0.7"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -3765,7 +3766,8 @@ const RAW_RUNTIME_STATE =
           ["sass", "npm:1.90.0"],\
           ["typescript", "patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"],\
           ["typescript-eslint", "virtual:2fe0f2e54021168d3518e880065fe8d8f10670030c6946ac61e024f436a15e2c5fe38ed8754dec661ea73f6dbfd3935685841cf0dc1404d4b9e02513a7bbec40#npm:8.39.0"],\
-          ["vite", "virtual:2fe0f2e54021168d3518e880065fe8d8f10670030c6946ac61e024f436a15e2c5fe38ed8754dec661ea73f6dbfd3935685841cf0dc1404d4b9e02513a7bbec40#npm:7.1.0"]\
+          ["vite", "virtual:2fe0f2e54021168d3518e880065fe8d8f10670030c6946ac61e024f436a15e2c5fe38ed8754dec661ea73f6dbfd3935685841cf0dc1404d4b9e02513a7bbec40#npm:7.1.0"],\
+          ["zustand", "virtual:2fe0f2e54021168d3518e880065fe8d8f10670030c6946ac61e024f436a15e2c5fe38ed8754dec661ea73f6dbfd3935685841cf0dc1404d4b9e02513a7bbec40#npm:5.0.7"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -5245,6 +5247,36 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../.yarn/berry/cache/yocto-queue-npm-0.1.0-c6c9a7db29-10c0.zip/node_modules/yocto-queue/",\
         "packageDependencies": [\
           ["yocto-queue", "npm:0.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["zustand", [\
+      ["npm:5.0.7", {\
+        "packageLocation": "../../../../.yarn/berry/cache/zustand-npm-5.0.7-aecaac2085-10c0.zip/node_modules/zustand/",\
+        "packageDependencies": [\
+          ["zustand", "npm:5.0.7"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:2fe0f2e54021168d3518e880065fe8d8f10670030c6946ac61e024f436a15e2c5fe38ed8754dec661ea73f6dbfd3935685841cf0dc1404d4b9e02513a7bbec40#npm:5.0.7", {\
+        "packageLocation": "./.yarn/__virtual__/zustand-virtual-252e798fc4/5/.yarn/berry/cache/zustand-npm-5.0.7-aecaac2085-10c0.zip/node_modules/zustand/",\
+        "packageDependencies": [\
+          ["zustand", "virtual:2fe0f2e54021168d3518e880065fe8d8f10670030c6946ac61e024f436a15e2c5fe38ed8754dec661ea73f6dbfd3935685841cf0dc1404d4b9e02513a7bbec40#npm:5.0.7"],\
+          ["@types/immer", null],\
+          ["@types/react", "npm:19.1.9"],\
+          ["@types/use-sync-external-store", null],\
+          ["immer", null],\
+          ["react", "npm:19.1.1"],\
+          ["use-sync-external-store", null]\
+        ],\
+        "packagePeers": [\
+          "@types/immer",\
+          "@types/react",\
+          "@types/use-sync-external-store",\
+          "immer",\
+          "react",\
+          "use-sync-external-store"\
         ],\
         "linkType": "HARD"\
       }]\

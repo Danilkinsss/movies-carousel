@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getMovieByID } from '../utils/api'
 import type Movie from '../types/Movie'
+import { useWishlistStore } from '../store/wishlistStore'
 import '../styles/MovieDetails.css'
 
 const MovieDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>()
   const [movie, setMovie] = useState<Movie | null>(null)
+  const { addToWishlist, removeFromWishlist, isMovieInWishlist } =
+    useWishlistStore()
 
   useEffect(() => {
     if (id) {
@@ -16,6 +19,14 @@ const MovieDetails: React.FC = () => {
 
   if (!movie) {
     return <div>Loading...</div>
+  }
+
+  const handleWishlistClick = () => {
+    if (isMovieInWishlist(movie.id)) {
+      removeFromWishlist(movie.id)
+    } else {
+      addToWishlist(movie)
+    }
   }
 
   const formatRuntime = (minutes: number) => {
@@ -37,6 +48,12 @@ const MovieDetails: React.FC = () => {
         <div className="movie-info">
           <h1>{movie.title}</h1>
           {movie.tagline && <p className="tagline">"{movie.tagline}"</p>}
+
+          <button onClick={handleWishlistClick} className="wishlist-button">
+            {isMovieInWishlist(movie.id)
+              ? 'Remove from Wishlist'
+              : 'Add to Wishlist'}
+          </button>
 
           <h3>Overview</h3>
           <p>{movie.overview}</p>
