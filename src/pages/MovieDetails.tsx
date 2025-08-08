@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getMovieByID } from '../utils/api'
-import type Movie from '../types/Movie'
-import { useWishlistStore } from '../store/wishlistStore'
-import '../styles/MovieDetails.scss'
+import { getMovieByID } from '@/utils/api'
+import type Movie from '@/types/Movie'
+import { useWishlistStore } from '@/store/wishlistStore'
+import '@/styles/MovieDetails.scss'
 
 const getCategoryFromGenres = (
   genres: Array<{ id: number; name: string }>

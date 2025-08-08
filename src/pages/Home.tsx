@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import type Movie from '../types/Movie'
-import { getMoviesByGenre } from '../utils/api'
-import Carousel from '../components/Carousel'
+import type Movie from '@/types/Movie'
+import { getMoviesByGenre } from '@/utils/api'
+import Carousel from '@/components/Carousel'
 
 const Home: React.FC = () => {
   const [fantasyMovies, setFantasyMovies] = useState<Movie[]>([])

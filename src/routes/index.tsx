@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom'
-import Home from '../pages/Home'
-import MovieDetails from '../pages/MovieDetails'
-import NotFound from '../pages/NotFound'
-import App from '../App'
-import Wishlist from '../pages/Wishlist'
+import Home from '@/pages/Home'
+import MovieDetails from '@/pages/MovieDetails'
+import NotFound from '@/pages/NotFound'
+import App from '@/App'
+import Wishlist from '@/pages/Wishlist'
 
 export const router = createBrowserRouter([
   {

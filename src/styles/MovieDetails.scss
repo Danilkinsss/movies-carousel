@@ -42,9 +42,9 @@
     }
 
     .wishlist-button {
-      background-color: #8a2be2; // BlueViolet
+      background-color: #2a5298; // BlueViolet
       &:hover {
-        background-color: color.adjust(#8a2be2, $lightness: -10%);
+        background-color: color.adjust(#2a5298, $lightness: +5%);
       }
     }
   }
@@ -70,7 +70,7 @@
       background-color: #ffc107; // Amber
       color: #212121;
       &:hover {
-        background-color: color.adjust(#ffc107, $lightness: -10%);
+        background-color: color.adjust(#ffc107, $lightness: +10%);
       }
     }
   }
@@ -154,7 +154,7 @@
 
 .tagline {
   font-style: italic;
-  color: #666;
+  color: #ccc;
   margin-bottom: 2rem;
 }
 
@@ -174,7 +174,7 @@
 .detail-item strong {
   font-weight: bold;
   margin-bottom: 0.25rem;
-  color: #444;
+  color: #aaa;
 }
 
 .genres {

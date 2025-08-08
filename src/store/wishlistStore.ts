@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type Movie from '../types/Movie'
+import type Movie from '@/types/Movie'
 
 interface WishlistState {
   wishlist: Movie[]

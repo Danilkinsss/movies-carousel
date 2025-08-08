@@ -1,7 +1,7 @@
 import React from 'react'
-import { useWishlistStore } from '../store/wishlistStore'
-import MovieCard from '../components/MovieCard'
-import '../styles/Wishlist.scss'
+import { useWishlistStore } from '@/store/wishlistStore'
+import MovieCard from '@/components/MovieCard'
+import '@/styles/Wishlist.scss'
 
 const Wishlist: React.FC = () => {
   const { wishlist, removeFromWishlist } = useWishlistStore()

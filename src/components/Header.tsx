@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useWishlistStore } from '../store/wishlistStore'
-import '../styles/Header.scss'
+import { useWishlistStore } from '@/store/wishlistStore'
+import '@/styles/Header.scss'
 
 const Header: React.FC = () => {
   const wishlist = useWishlistStore((state) => state.wishlist)

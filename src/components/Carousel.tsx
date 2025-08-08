@@ -1,7 +1,7 @@
 import React from 'react'
-import type Movie from '../types/Movie'
-import MovieCard from './MovieCard'
-import '../styles/Carousel.scss'
+import type Movie from '@/types/Movie'
+import MovieCard from '@/components/MovieCard'
+import '@/styles/Carousel.scss'
 
 interface CarouselProps {
   title: string

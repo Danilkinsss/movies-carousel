@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import type Movie from '../types/Movie'
+import type Movie from '@/types/Movie'
 import { Link } from 'react-router-dom'
-import '../styles/MovieCard.scss'
+import '@/styles/MovieCard.scss'
 
 interface MovieCardProps {
   movie: Movie
