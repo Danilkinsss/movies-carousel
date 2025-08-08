@@ -1,39 +1,123 @@
+@keyframes giggle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateY(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes lightning-strike {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  5%,
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  10%,
+  45% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
 .movie-card {
+  position: relative;
   flex: 0 0 auto;
   width: 150px;
   margin-right: 1.5rem;
   text-align: center;
   display: flex;
   flex-direction: column;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .poster {
+    width: 100%;
+    height: 225px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &:hover .poster {
+    transform: scale(1.05);
+  }
+
+  .movie-card-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    min-height: 2.5em;
+    line-height: 1.25;
+    flex-grow: 1;
+  }
 }
 
-.movie-card a {
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.movie-card img {
+.lightning-container {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 225px;
-  object-fit: cover;
+  overflow: hidden;
   border-radius: 8px;
-  margin-bottom: 0.5rem;
-  transition: transform 0.2s ease-in-out;
+  pointer-events: none;
+  z-index: 2;
+
+  .lightning {
+    position: absolute;
+    font-size: 2.5rem;
+    opacity: 0;
+    text-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+  }
 }
 
-.movie-card:hover img {
-  transform: scale(1.05);
+.movie-card:hover .lightning {
+  animation: lightning-strike 4s infinite;
 }
 
-.movie-card-title {
-  font-size: 0.9rem;
-  font-weight: 500;
-  min-height: 2.5em;
-  line-height: 1.25;
-  flex-grow: 1;
+@keyframes jump-scare {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  90% {
+    transform: scale(1);
+    filter: brightness(0.2);
+  }
+  100% {
+    transform: scale(1.3);
+    filter: brightness(1);
+  }
+}
+
+.horror-card:hover {
+  z-index: 10;
+  .poster {
+    animation: jump-scare 1.5s forwards;
+  }
 }
 
 .remove-button {
@@ -47,8 +131,8 @@
   margin-top: 0.5rem;
   width: 100%;
   transition: background-color 0.2s;
-}
 
-.remove-button:hover {
-  background-color: #c82333;
+  &:hover {
+    background-color: #c82333;
+  }
 }

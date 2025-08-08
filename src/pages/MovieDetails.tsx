@@ -1,21 +1,37 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useLocation } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { getMovieByID } from '../utils/api'
 import type Movie from '../types/Movie'
 import { useWishlistStore } from '../store/wishlistStore'
 import '../styles/MovieDetails.scss'
 
+const getCategoryFromGenres = (
+  genres: Array<{ id: number; name: string }>
+): string => {
+  const genreNames = genres.map((g) => g.name)
+  if (genreNames.includes('Horror')) return 'horror'
+  if (genreNames.includes('Fantasy')) return 'fantasy'
+  if (genreNames.includes('Comedy')) return 'comedy'
+  return 'default'
+}
+
 const MovieDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>()
-  const location = useLocation()
-  const { category } = location.state || { category: 'default' }
   const [movie, setMovie] = useState<Movie | null>(null)
+  const [category, setCategory] = useState('default')
   const { addToWishlist, removeFromWishlist, isMovieInWishlist } =
     useWishlistStore()
 
   useEffect(() => {
     if (id) {
-      getMovieByID(id).then(setMovie).catch(console.error)
+      getMovieByID(id)
+        .then((data) => {
+          setMovie(data)
+          if (data && data.genres) {
+            setCategory(getCategoryFromGenres(data.genres))
+          }
+        })
+        .catch(console.error)
     }
   }, [id])
 
