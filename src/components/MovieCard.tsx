@@ -1,14 +1,15 @@
 import React from 'react'
 import type Movie from '../types/Movie'
 import { Link } from 'react-router-dom'
-import '../styles/MovieCard.css'
+import '../styles/MovieCard.scss'
 
 interface MovieCardProps {
   movie: Movie
   onRemove?: (movieId: number) => void
+  category?: string
 }
 
-const MovieCard: React.FC<MovieCardProps> = ({ movie, onRemove }) => {
+const MovieCard: React.FC<MovieCardProps> = ({ movie, onRemove, category }) => {
   const handleRemoveClick = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
@@ -19,7 +20,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onRemove }) => {
 
   return (
     <div className="movie-card">
-      <Link to={`/movie/${movie.id}`}>
+      <Link to={`/movie/${movie.id}`} state={{ category }}>
         <img
           src={
             movie.poster_path

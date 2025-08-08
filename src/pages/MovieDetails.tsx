@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 import { getMovieByID } from '../utils/api'
 import type Movie from '../types/Movie'
 import { useWishlistStore } from '../store/wishlistStore'
-import '../styles/MovieDetails.css'
+import '../styles/MovieDetails.scss'
 
 const MovieDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>()
+  const location = useLocation()
+  const { category } = location.state || { category: 'default' }
   const [movie, setMovie] = useState<Movie | null>(null)
   const { addToWishlist, removeFromWishlist, isMovieInWishlist } =
     useWishlistStore()
@@ -40,7 +42,7 @@ const MovieDetails: React.FC = () => {
     : 'https://via.placeholder.com/500x750.png?text=No+Image'
 
   return (
-    <div className="movie-details">
+    <div className={`movie-details ${category}`}>
       <div className="movie-details-grid">
         <div className="movie-poster">
           <img src={posterUrl} alt={movie.title} />

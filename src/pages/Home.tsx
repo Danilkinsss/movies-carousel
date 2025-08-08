@@ -37,10 +37,10 @@ const Home: React.FC = () => {
   }
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <Carousel title="Fantasy" movies={fantasyMovies} />
-      <Carousel title="Comedy" movies={comedyMovies} />
-      <Carousel title="Horror" movies={horrorMovies} />
+    <div className="home-container">
+      <Carousel title="Fantasy" movies={fantasyMovies} category="fantasy" />
+      <Carousel title="Comedy" movies={comedyMovies} category="comedy" />
+      <Carousel title="Horror" movies={horrorMovies} category="horror" />
     </div>
   )
 }

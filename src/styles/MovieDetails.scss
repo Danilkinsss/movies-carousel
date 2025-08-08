@@ -1,0 +1,159 @@
+@use 'sass:color';
+
+.movie-details {
+  // Default button styles
+  .wishlist-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  // Category-specific overrides
+  &.fantasy {
+    font-family: 'Cinzel Decorative', serif;
+    background: linear-gradient(180deg, #1e3c72, #2a5298);
+    color: white;
+
+    h1 {
+      transition: color 0.3s ease;
+      &:hover {
+        background: linear-gradient(90deg, #a7c5eb, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    .wishlist-button {
+      background-color: #8a2be2; // BlueViolet
+      &:hover {
+        background-color: color.adjust(#8a2be2, $lightness: -10%);
+      }
+    }
+  }
+
+  &.comedy {
+    font-family: 'Fredoka One', 'Comic Neue', system-ui, sans-serif;
+    background: linear-gradient(45deg, #f9d423, #ff4e50);
+    color: white;
+
+    h1 {
+      transition: color 0.3s ease;
+      &:hover {
+        background: linear-gradient(45deg, #ff8c00, #ffeb3b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    .wishlist-button {
+      background-color: #ffc107; // Amber
+      color: #212121;
+      &:hover {
+        background-color: color.adjust(#ffc107, $lightness: -10%);
+      }
+    }
+  }
+
+  &.horror {
+    font-family: 'Creepster', system-ui, sans-serif;
+    background: linear-gradient(180deg, #990000, #4a0000);
+    color: #ff4d4d;
+
+    h1 {
+      transition: color 0.3s ease;
+      &:hover {
+        background: linear-gradient(90deg, #ff4d4d, #000000);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    .wishlist-button {
+      background-color: #b71c1c; // Dark Red
+      &:hover {
+        background-color: color.adjust(#b71c1c, $lightness: -10%);
+      }
+    }
+  }
+}
+
+.movie-details-container {
+  padding: 2rem;
+  color: #333;
+}
+
+.movie-details-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.movie-poster img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.movie-info h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.tagline {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.movie-info h3 {
+  font-size: 1.25rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.details-row {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-item strong {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  color: #444;
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.genre-tag {
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+}
