@@ -1,25 +1,47 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { getPopularMovies } from '../utils/api'
 import type Movie from '../types/Movie'
+import { getMoviesByGenre } from '../utils/api'
+import Carousel from '../components/Carousel'
 
 const Home: React.FC = () => {
-  const [movies, setMovies] = useState<Movie[]>([])
+  const [fantasyMovies, setFantasyMovies] = useState<Movie[]>([])
+  const [comedyMovies, setComedyMovies] = useState<Movie[]>([])
+  const [horrorMovies, setHorrorMovies] = useState<Movie[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    getPopularMovies().then(setMovies).catch(console.error)
+    const fetchMovies = async () => {
+      try {
+        // Genre IDs: Fantasy: 14, Comedy: 35, Horror: 27
+        const fantasy = getMoviesByGenre(14)
+        const comedy = getMoviesByGenre(35)
+        const horror = getMoviesByGenre(27)
+
+        const [fantasyResults, comedyResults, horrorResults] =
+          await Promise.all([fantasy, comedy, horror])
+
+        setFantasyMovies(fantasyResults)
+        setComedyMovies(comedyResults)
+        setHorrorMovies(horrorResults)
+      } catch (error) {
+        console.error('Failed to fetch movies:', error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchMovies()
   }, [])
 
+  if (isLoading) {
+    return <div>Loading movie carousels...</div>
+  }
+
   return (
-    <div>
-      <h1>Popular Movies</h1>
-      <ul>
-        {movies.map((movie) => (
-          <li key={movie.id}>
-            <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
-          </li>
-        ))}
-      </ul>
+    <div style={{ padding: '2rem' }}>
+      <Carousel title="Fantasy" movies={fantasyMovies} />
+      <Carousel title="Comedy" movies={comedyMovies} />
+      <Carousel title="Horror" movies={horrorMovies} />
     </div>
   )
 }

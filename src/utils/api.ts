@@ -27,14 +27,16 @@ async function fetchFromTMDB(endpoint: string) {
   }
 }
 
-export async function getPopularMovies() {
-  const data = await fetchFromTMDB('/movie/popular?language=en-US&page=1')
-  console.log('Popular movies data:', data)
-  return data.results
-}
-
 export async function getMovieByID(id: string) {
   const data = await fetchFromTMDB(`/movie/${id}?language=en-US`)
   console.log(`Movie details for ID ${id}:`, data)
   return data
+}
+
+export async function getMoviesByGenre(genreId: number) {
+  const data = await fetchFromTMDB(
+    `/discover/movie?with_genres=${genreId}&include_adult=false&language=en-US&page=1&sort_by=popularity.desc`
+  )
+  console.log(`Movies for genre ${genreId}:`, data)
+  return data.results.slice(0, 12)
 }
